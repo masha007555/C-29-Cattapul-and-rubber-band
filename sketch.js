@@ -2,6 +2,10 @@ const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
+//const Render = Matter.Render;
+const Render = Matter.Render;
+
+
 
 var engine, world;
 var box1, pig1;
@@ -36,10 +40,38 @@ function setup(){
     log4 = new Log(760,120,150, PI/7);
     log5 = new Log(870,120,150, -PI/7);
 
-    bird = new Bird(100,100);
+    bird = new Bird(200,50);
 
     //log6 = new Log(230,180,80, PI/2);
-    slingshot = new SlingShot(bird.body,{x:200, y:100});
+    slingshot = new SlingShot(bird.body,{x:200, y:50});
+
+    var render = Render.create({
+
+        element:document.body,
+
+        engine: engine,
+
+        options: {
+
+          width: 1200,
+
+          height: 400,
+
+          wireframes:true,
+
+          showAngleIndicator: true,
+
+ 
+
+        },
+
+       
+
+      });
+
+      Render.run(render);
+
+ 
 }
 
 function draw(){
